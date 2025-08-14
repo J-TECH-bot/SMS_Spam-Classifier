@@ -1,6 +1,6 @@
 streamlit>=1.28.0
 nltk>=3.8.0
-scikit-learn>=1.4.0
+scikit-learn==1.7.1
 pandas>=2.0.0
 numpy>=1.24.0,<2.0.0
 scipy>=1.11.0 
