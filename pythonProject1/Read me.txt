@@ -1,1 +1,48 @@
+SMS Spam Classifier – Read Me
 
+This project is a machine learning application that detects whether an SMS message is Spam or Ham (Not Spam).
+It uses Python, Streamlit, and Scikit-learn for building and deploying the model.
+
+Files in this project:
+
+app.py – Main Streamlit app file.
+
+SMS_Classification.ipynb – Jupyter Notebook for training the model.
+
+spam_sms.csv – Dataset containing SMS messages with spam/ham labels.
+
+model.pkl – Saved trained ML model.
+
+vectorizer.pkl – Saved text vectorizer for converting text into numerical features.
+
+requirements.txt – List of Python dependencies.
+
+.streamlit/ – Streamlit configuration folder.
+
+.devcontainer/, .idea/, __pycache__/ – Environment and cache files.
+
+How to run the app locally:
+
+Install Python (version 3.8+ recommended).
+
+Install dependencies:
+
+pip install -r requirements.txt
+
+
+Run the app:
+
+streamlit run app.py
+
+
+Open the local URL shown in the terminal.
+
+Usage:
+
+Type or paste an SMS message in the text box.
+
+Click Predict.
+
+The app will display whether it’s Spam or Ham.
+
+If you retrain the model using the notebook, replace model.pkl and vectorizer.pkl with the new ones.
