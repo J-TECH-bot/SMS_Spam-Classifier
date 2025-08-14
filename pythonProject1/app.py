@@ -1,14 +1,37 @@
 import streamlit as st
 import pickle
 import nltk
+import os
 from nltk.stem import PorterStemmer
 from nltk.corpus import stopwords
 import string
+
+# Download required NLTK data
+try:
+    nltk.data.find('tokenizers/punkt')
+except LookupError:
+    nltk.download('punkt')
+
+try:
+    nltk.data.find('corpora/stopwords')
+except LookupError:
+    nltk.download('stopwords')
+
 ps = PorterStemmer()
 
+# Get the directory where the app.py file is located
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
 #lets load the saved vectorizer and native model
-tfidf = pickle.load(open('vectorizer.pkl','rb'))
-model = pickle.load(open('model.pkl','rb'))
+try:
+    tfidf = pickle.load(open(os.path.join(current_dir, 'vectorizer.pkl'),'rb'))
+    model = pickle.load(open(os.path.join(current_dir, 'model.pkl'),'rb'))
+except FileNotFoundError as e:
+    st.error(f"Model files not found: {e}")
+    st.stop()
+except Exception as e:
+    st.error(f"Error loading model: {e}")
+    st.stop()
 
 #saving streamlit code
 st.title("Email spam Classifier")
@@ -38,7 +61,6 @@ def transform_text(text):
         return " ".join(y)
 
     # transform_text("I'm gonna be home soon and i don't want to talk about this stuff anymore tonight, k? I've cried enough today.")
-        return transform_text
 
 
 if st.button('predict'):
