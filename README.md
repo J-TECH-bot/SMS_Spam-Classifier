@@ -14,7 +14,7 @@ A Machine Learning + Streamlit web application that classifies SMS messages as S
 
 Clone the repository:
 
-git clone https://github.com/your-username/sms-spam-classification.git
+https://github.com/J-TECH-bot/SMS_Spam-Classifier.git
 cd sms-spam-classification
 
 
